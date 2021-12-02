@@ -1,8 +1,15 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import FlightList from './components/FlightList';
 
 function App() {
   return (
+
+    <>
+    <h1><FlightList/></h1>
+    </>
+
+
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -19,6 +26,7 @@ function App() {
         </a>
       </header>
     </div>
+
   );
 }
 
