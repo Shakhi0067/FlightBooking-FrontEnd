@@ -1,0 +1,14 @@
+.table{
+    border-collapse: separate;
+    border-spacing: 30px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+    background-color: rgb(253, 253, 252);
+    
+}
+.Clickable{
+    
+    background-color: rgb(252, 251, 249);
+    display:inline-block;
+    box-shadow: 5px 5px 20px rgb(168, 166, 166);
+    border-radius: 10px;
+}

@@ -6,7 +6,7 @@ function App() {
   return (
 
     <>
-    <h1><FlightList/></h1>
+    <FlightList/>
     </>
 
 
