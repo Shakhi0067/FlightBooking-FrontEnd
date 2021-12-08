@@ -62,8 +62,7 @@ function FlightDetails() {
                         
                 </div>
             </div>
-        </div>    
-
+        </div>
     )
 }
 
