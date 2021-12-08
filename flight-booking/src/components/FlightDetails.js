@@ -1,8 +1,5 @@
 import React from 'react'
-<<<<<<< HEAD
 import '../styles/container.css'
-=======
->>>>>>> 6b2b782 (basic layout completed)
 
 function FlightDetails() {
     return (
@@ -11,7 +8,6 @@ function FlightDetails() {
                 <h2>Airline Name/code</h2>
  
                 <div>
-<<<<<<< HEAD
                     <h2 className="date">Thursday, Nov 25</h2>
                 </div>
                 <div className="cabin">
@@ -66,15 +62,6 @@ function FlightDetails() {
                         
                 </div>
             </div>
-=======
-                    <h2>Date</h2>
-                </div>
-                <div>
-                    <h3>Class</h3>
-                    <h2>Premium Economy</h2>
-                </div>
-            </div>
->>>>>>> 6b2b782 (basic layout completed)
         </div>
     )
 }

@@ -1,11 +1,7 @@
 import React from 'react'
 import '../styles/container.css'
 
-<<<<<<< HEAD
 function FareSummary({res}) {
-=======
-function FareSummary() {
->>>>>>> 6b2b782 (basic layout completed)
     return (
         <div className="container-fare-summary container">
             <div>
@@ -26,11 +22,7 @@ function FareSummary() {
 
                 <div className="row">
                 <h2>Total Amount </h2>
-<<<<<<< HEAD
                 <h2><span>&#8377;</span>5,454 </h2>
-=======
-                <h3><span>&#8377;</span>5,454 </h3>
->>>>>>> 6b2b782 (basic layout completed)
                 </div>
             </div>
         </div>
