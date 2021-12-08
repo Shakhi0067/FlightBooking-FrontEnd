@@ -1,0 +1,10 @@
+.Detail-table{
+    border-collapse: separate;
+    border-spacing: 10px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+    margin-top: 30px;
+    margin-left: 20px;
+    
+    
+    
+}

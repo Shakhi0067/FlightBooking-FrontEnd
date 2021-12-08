@@ -1,0 +1,29 @@
+.table{
+    border-collapse: separate;
+    border-spacing: 27px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+    background-color: rgb(253, 253, 252);
+    
+    
+}
+.Clickable{
+    
+    background-color: rgba(210, 211, 231, 0.89);
+    display:inline-block;
+    box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+    border-radius: 10px;
+    
+}
+.Flight_Heading{
+    color:#51459b;
+    padding-top: 15px;
+    
+    
+}
+.border{
+    border-color: rgba(195, 212, 235, 0.89);
+    
+}
+.duration{
+    border-color:#fbb03b;
+}

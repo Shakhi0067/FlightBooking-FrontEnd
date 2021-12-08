@@ -1,0 +1,32 @@
+
+.container{
+    height:80vh;
+    width:95vw;
+    display:grid;
+    grid-template-rows:600px 300px ;
+    grid-template-columns:300px 1000px;
+    gap:4px;
+  }
+  .detail_box{
+    margin: 10px;
+    background-color: rgba(210, 211, 231, 0.89);
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    border-radius: 10px;
+    
+    box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+  }
+  .list_box{
+    margin: 10px;
+    background-color: white;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border-radius: 20px ;
+    box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+  }
+  
+
