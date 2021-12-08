@@ -1,15 +1,23 @@
+p{
+    font-size: 1.2rem;
+}
+hr{
+    border-color: rgba(195, 212, 235, 0.89); 
+}
 .container{
     margin: 3em 0 3em 0;
     background-color: rgb(255, 255, 255);
     min-height: 40vh;
     border-radius: 20px;
     padding: 0 25px 15px 25px;
+    box-shadow: 9px 10px 14px 0px rgba(0,0,0,0.28);
   
 }
 
 .container-flight-details{
     min-width: 55vw;
     padding-top: 1em;
+    padding-right: 25px;
 
 }
 
@@ -26,11 +34,11 @@
 
 
 .hr-thick{
-    border-top: 2px solid;
+    border-top: 2px solid rgba(174, 189, 209, 0.89);
 }
 
 .date{
-    background-color: rgb(226, 167, 126);
+    background-color: #efd2ab;
     border-radius: 10px;
     padding: 5px;
 }
@@ -43,30 +51,61 @@
 .cabin *, .airport *{
     margin:0;
 }
+.cabin h2{
+    color: #47ad32;
+}
 
-.flight-details{
+.details{
     margin-top: 10px;
     min-height: 70%;
-    background-color: rgba(195, 212, 235, 0.89);
+    width: 95%;
+    background-color: rgba(210, 211, 231, 0.89);
     border-radius: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 5px;
+    padding: 5px 20px;
+    display: inline-flex;
 }
 
 .dot {
     height: 12px;
     width: 12px;
-    background-color: rgba(195, 212, 235, 0.89);
+    margin-top: 25px;
+    margin-left: 25px;
+    background-color: rgba(210, 211, 231, 0.89);
     border: 1px solid black;
     border-radius: 50%;
     display: inline-block;
   }
 
-  .airport-row{
-    width: 50%;  
+.airport-row, .baggage-row{
+    display: inline-flex;
+}
+.airport{
+    margin-left: 30px;
+    
+}
+
+.duration{
+    border-right: 1px dashed black;
+    padding-top: 10px;
+    height: 80px;
+    width: 75px;
+}
+
+.flight-details{
+    width: 60%;
+}
+
+.passenger-details{
+    width: 40%;
+}
+
+.passenger-details, .baggage-col{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
-  
+
+.baggage-col *{
+    margin: 0;
+    padding: 0 20px;
+}

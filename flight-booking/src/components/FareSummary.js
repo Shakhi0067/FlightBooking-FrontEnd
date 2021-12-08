@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/container.css'
 
-function FareSummary() {
+function FareSummary({res}) {
     return (
         <div className="container-fare-summary container">
             <div>
@@ -22,7 +22,7 @@ function FareSummary() {
 
                 <div className="row">
                 <h2>Total Amount </h2>
-                <h3><span>&#8377;</span>5,454 </h3>
+                <h2><span>&#8377;</span>5,454 </h2>
                 </div>
             </div>
         </div>
