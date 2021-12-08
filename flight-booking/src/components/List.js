@@ -20,6 +20,7 @@ function List() {
         <div>
             
             <center><h1 className='Flight_Heading'>Best Flights </h1></center>
+            
             <hr width="900px;" size="2" className='border'/>
             <Table>
            
