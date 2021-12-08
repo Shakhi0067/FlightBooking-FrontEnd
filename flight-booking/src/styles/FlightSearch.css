@@ -1,0 +1,266 @@
+
+/* Search Form */
+
+ 
+  
+  #search-form {
+    /*border: 1px solid rgb(23, 145, 226);*/
+    width: auto;
+    position: relative;
+    height:auto;
+    border-radius: 10px;
+    margin:10px;
+    box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(3px);
+    
+   
+  }
+  
+  
+  #header {
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  
+  }
+  #header h2 {
+    color:#51459b; 
+    margin-left: 20px;
+    
+    
+  
+    
+  }
+  
+  .flight {
+    padding: 20px;
+  
+  }
+  .flight input, select {
+      color: #6B6A6A;
+  }
+  
+  .info-box {
+    padding: 0;
+    margin-top: 20px;
+    flex: 1;
+    float: left;
+    margin-right: 10px;
+    padding: 12px;
+    position: relative;
+     
+  }
+
+  .info-box label {
+    display: block;
+    color: black;
+    
+  }
+  .info-box input[type=text], input[type=submit], select {
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    padding: 5px;
+    height: 30px;
+    
+  }
+  #org{
+    border: none;
+    outline: none;
+    margin-top: 5px;
+    padding: 5px;
+    height: 30px;
+   
+  }
+  
+  #flight-type {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 1px dotted silver;
+  }
+  
+  #flight-type .info-box {
+    flex: 0 1 28%;
+    display:flex;
+    
+  }
+  
+ 
+ #flight-search{
+  width: 200px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+  position: relative;
+
+     
+ }
+ 
+  
+ 
+  #flight-search a {
+    background:#51459b;
+    color:white;
+   text-align: center;
+    
+    
+  }
+
+body {
+  display: grid;
+  place-content: center;
+
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px;
+  box-sizing: border-box;
+  
+
+  
+}
+
+
+.rad-label {
+  display: flex;
+  align-items: center;
+
+  border-radius: 100px;
+  padding: 14px 16px;
+  margin: 10px 0;
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 80%, .14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 1;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+
+  background: linear-gradient(to right bottom, hsl(224, 11%, 45%), #51459b);
+  position: relative;
+}
+
+.rad-design::before {
+  content: '';
+
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.rad-input:checked+.rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+ 
+  margin-left: 14px;
+  letter-spacing: 3px;
+  
+  
+
+  transition: .3s;
+}
+
+.rad-input:checked~.rad-text {
+  color: hsl(0, 0%, 40%);
+}
+
+
+
+.abs-site-link {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  color: hsla(0, 0%, 0%, .5);
+  font-size: 16px;
+}
+
+#dep-from{
+  border-radius: 10px;
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(3px);
+    width: 200px;
+    height: 50px;
+    
+}
+#dep-to{
+  border-radius: 10px;
+   
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+
+    backdrop-filter: blur(3px);
+    width: 200px;
+    height: 50px;
+}
+#calender{
+  border-radius: 10px;
+   
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(3px);
+  width: 200px;
+ height:50px;
+}
+#calender2{
+  border-radius: 10px;
+   
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(3px);
+  width: 200px;
+ height: 50px;
+}
+ #class-type{
+  border-radius: 10px;
+   
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(3px);
+  width: 200px;
+  height: 50px;
+ }
+ .org {
+  border-radius: 10px;
+  border: 0 !important;
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+
+    backdrop-filter: blur(3px);
+    width: 200px;
+    height: 47px;
+}
+.des{
+ 
+  border-radius: 10px;
+   
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter: blur(3px);
+  width: 200px;
+  height: 47px;
+}
+
+  
+
