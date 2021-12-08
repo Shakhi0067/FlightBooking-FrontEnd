@@ -1,13 +1,11 @@
-//import logo from './logo.svg';
 import './App.css';
-import FlightList from './components/FlightList';
+import SelectedFlight from './components/SelectedFlight';
 
 function App() {
   return (
 
     <>
-    <h1><SearchLocation/></h1>
-   
+      <SelectedFlight/>
     </>
 
 
