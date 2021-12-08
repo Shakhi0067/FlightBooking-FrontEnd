@@ -1,16 +1,10 @@
 .Detail-table{
     border-collapse: separate;
-    border-spacing: 30px;
+    border-spacing: 10px;
     *border-collapse: expression('separate', cellSpacing='10px');
-    margin-top: 100px;
-    margin-left: 40px;
+    margin-top: 30px;
+    margin-left: 20px;
     
     
     
-}
-.table-row{
-    
-    margin: 12px;
-    padding:12px;
-   
 }
