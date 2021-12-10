@@ -11,5 +11,6 @@ import List from './List';
             
         </>
     )
-}
-export default  FlightList;
+};
+
+export default FlightList
