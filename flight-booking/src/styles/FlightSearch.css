@@ -12,6 +12,7 @@
     margin:10px;
     box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(3px);
+   
     
    
   }
@@ -115,7 +116,8 @@ body {
   margin: 0;
   padding: 40px;
   box-sizing: border-box;
-  
+  font-family:Calibri,sans-serif;
+  background-color:black ;
 
   
 }
@@ -198,23 +200,6 @@ body {
   font-size: 16px;
 }
 
-#dep-from{
-  border-radius: 10px;
-  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(3px);
-    width: 200px;
-    height: 50px;
-    
-}
-#dep-to{
-  border-radius: 10px;
-   
-  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
-
-    backdrop-filter: blur(3px);
-    width: 200px;
-    height: 50px;
-}
 #calender{
   border-radius: 10px;
    
@@ -233,34 +218,40 @@ body {
   width: 200px;
  height: 50px;
 }
- #class-type{
+ 
+ #passenger{
   border-radius: 10px;
    
   box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
 
   backdrop-filter: blur(3px);
   width: 200px;
-  height: 50px;
+  height: 55px;
  }
- .org {
+ 
+#travelclass{
   border-radius: 10px;
-  border: 0 !important;
   box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
-
     backdrop-filter: blur(3px);
     width: 200px;
-    height: 47px;
+    height: 55px;
+    
 }
-.des{
- 
+#arrive-box2{
+  border-radius: 10px;
+  box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(3px);
+    width: 200px;
+    height: 55px;
+    
+}
+
+#arrive-box1{
   border-radius: 10px;
    
   box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
 
   backdrop-filter: blur(3px);
   width: 200px;
-  height: 47px;
-}
-
-  
-
+  height: 55px;
+ }
