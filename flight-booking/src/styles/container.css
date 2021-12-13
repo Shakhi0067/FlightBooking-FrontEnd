@@ -18,12 +18,13 @@ hr{
     min-width: 55vw;
     padding-top: 1em;
     padding-right: 25px;
-
+    
 }
 
 .container-fare-summary{
     margin-left: 1em;
     min-width: 30vw;
+    max-height: 45vh;
 }
 
 .row{
@@ -40,7 +41,7 @@ hr{
 .date{
     background-color: #efd2ab;
     border-radius: 10px;
-    padding: 5px;
+    padding: 0 5px;
 }
 
 .cabin{
@@ -57,7 +58,6 @@ hr{
 
 .details{
     margin-top: 10px;
-    min-height: 70%;
     width: 95%;
     background-color: rgba(210, 211, 231, 0.89);
     border-radius: 10px;
@@ -87,8 +87,8 @@ hr{
 .duration{
     border-right: 1px dashed black;
     padding-top: 10px;
-    height: 80px;
-    width: 75px;
+    height: 90px;
+    width: 107px;
 }
 
 .flight-details{
@@ -99,7 +99,7 @@ hr{
     width: 40%;
 }
 
-.passenger-details, .baggage-col{
+.passenger-details, .baggage-col, .airport-row-date-time{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,4 +108,12 @@ hr{
 .baggage-col *{
     margin: 0;
     padding: 0 20px;
+}
+
+.airport-row-date-time *{
+    margin: 5px 0 2px 0;
+}
+
+.airport-row-date-time > p{
+    font-size: 1em;
 }

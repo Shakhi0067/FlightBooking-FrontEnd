@@ -1,203 +1,201 @@
 const req =  {
-                "type": "flight-offer",
-                "id": "1",
-                "source": "GDS",    
-                "instantTicketingRequired": false,   
-                "nonHomogeneous": false,   
-                "oneWay": false,   
-                "lastTicketingDate": "2021-12-07",  
-                "numberOfBookableSeats": 9,   
-                "itineraries": [ 
-                    {  
-                        "duration": "PT28H25M",
-                        "segments": [
-                                {
-                                    "departure": {
-                                        "iataCode": "SYD",
-                                        "at": "2021-12-07T16:35:00"
-                                    },
-                                    "arrival": {
-                                        "iataCode": "LHR",
-                                        "at": "2021-12-08T05:30:00"
-                                    },
-                                    "carrierCode": "6X",
-                                    "number": "1335",
-                                    "aircraft": {
-                                        "code": "744"
-                                    },
-                                    "operating": {
-                                        "carrierCode": "6X"
-                                    },
-                                    "duration": "PT23H55M",
-                                    "stops": [
-                                        {
-                                            "iataCode": "SIN",
-                                            "duration": "PT1H15M",
-                                            "arrivalAt": "2021-12-07T21:45:00",
-                                            "departureAt": "2021-12-07T23:00:00"
-                                        }
-                                    ],
-                                    "id": "1",
-                                    "numberOfStops": 1,
-                                    "blacklistedInEU": false
-                                },
-                                {
-                                    "departure": {
-                                        "iataCode": "LHR",
-                                        "at": "2021-12-08T07:00:00"
-                                    },
-                                    "arrival": {
-                                        "iataCode": "BKK",
-                                        "at": "2021-12-08T17:00:00"
-                                    },
-                                    "carrierCode": "6X",
-                                    "number": "8702",
-                                    "aircraft": {
-                                        "code": "744"
-                                    },
-                                    "operating": {
-                                        "carrierCode": "6X"
-                                    },
-                                    "duration": "PT3H",
-                                    "id": "2",
-                                    "numberOfStops": 0,
-                                    "blacklistedInEU": false
-                                }
-                            ]
-                        },
-                        {
-                            "duration": "PT9H",
-                            "segments": [
-                                {
-                                    "departure": {
-                                        "iataCode": "BKK",
-                                       "at": "2021-12-08T19:10:00"
-                                    },
-                                    "arrival": {
-                                        "iataCode": "SYD",
-                                        "at": "2021-12-09T08:10:00"
-                                    },
-                                    "carrierCode": "6X",
-                                    "number": "1909",
-                                    "aircraft": {
-                                        "code": "744"
-                                    },
-                                    "operating": {
-                                        "carrierCode": "6X"
-                                    },
-                                    "duration": "PT9H",
-                                    "id": "7",
-                                    "numberOfStops": 0,
-                                    "blacklistedInEU": false
-                                }
-                            ]
-                        }
-                    ],
-                    "price": {
-                        "currency": "EUR",
-                        "total": "5183.92",
-                        "base": "4696.00",
-                        "fees": [
-                            {
-                                "amount": "0.00",
-                                "type": "SUPPLIER"
-                            },
-                            {
-                                "amount": "0.00",
-                                "type": "TICKETING"
-                            }
-                        ],
-                        "grandTotal": "5183.92"
-                   },
-                    "pricingOptions": {
-                        "fareType": [
-                            "PUBLISHED"
-                        ],
-                        "includedCheckedBagsOnly": true
-                    },
-                    "validatingAirlineCodes": [
-                        "6X"
-                    ],
-                    "travelerPricings": [
-                        {
-                            "travelerId": "1",
-                            "fareOption": "STANDARD",
-                            "travelerType": "ADULT",
-                            "price": {
-                                "currency": "EUR",
-                                "total": "2591.96",
-                                "base": "2348.00"
-                            },
-                            "fareDetailsBySegment": [
-                                {
-                                    "segmentId": "1",
-                                    "cabin": "ECONOMY",
-                                    "fareBasis": "K6XDWTST",
-                                    "class": "K",
-                                    "includedCheckedBags": {
-                                        "quantity": 9
-                                    }
-                                },
-                                {
-                                    "segmentId": "2",
-                                    "cabin": "ECONOMY",
-                                    "fareBasis": "K6XDWTST",
-                                    "class": "K",
-                                    "includedCheckedBags": {
-                                        "quantity": 9
-                                    }
-                                },
-                                {
-                                    "segmentId": "7",
-                                    "cabin": "ECONOMY",
-                                    "fareBasis": "K6XDWTST",
-                                    "class": "K",
-                                    "includedCheckedBags": {
-                                        "quantity": 9
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "travelerId": "2",
-                            "fareOption": "STANDARD",
-                            "travelerType": "ADULT",
-                            "price": {
-                                "currency": "EUR",
-                                "total": "2591.96",
-                                "base": "2348.00"
-                            },
-                            "fareDetailsBySegment": [
-                                {
-                                    "segmentId": "1",
-                                    "cabin": "ECONOMY",
-                                    "fareBasis": "K6XDWTST",
-                                    "class": "K",
-                                    "includedCheckedBags": {
-                                        "quantity": 9
-                                    }
-                                },
-                                {
-                                    "segmentId": "2",
-                                    "cabin": "ECONOMY",
-                                    "fareBasis": "K6XDWTST",
-                                    "class": "K",
-                                    "includedCheckedBags": {
-                                        "quantity": 9
-                                    }
-                                },
-                                {
-                                    "segmentId": "7",
-                                    "cabin": "ECONOMY",
-                                    "fareBasis": "K6XDWTST",
-                                    "class": "K",
-                                    "includedCheckedBags": {
-                                        "quantity": 9
-                                    }
-                                }
-                            ]
-                        }
-                    ]
-                }
+    "type": "flight-offer",
+    "id": "2",
+    "source": "GDS",
+    "instantTicketingRequired": false,
+    "nonHomogeneous": false,
+    "oneWay": false,
+    "lastTicketingDate": "2021-12-19",
+    "numberOfBookableSeats": 9,
+    "itineraries": [
+        {
+            "duration": "PT8H25M",
+            "segments": [
+                {
+                    "departure": {
+                        "iataCode": "COK",
+                        "terminal": "1",
+                        "at": "2021-12-19T15:30:00"
+                    },
+                    "arrival": {
+                        "iataCode": "BLR",
+                        "at": "2021-12-19T17:55:00"
+                    },
+                    "carrierCode": "AI",
+                    "number": "9506",
+                    "aircraft": {
+                        "code": "ATR"
+                    },
+                    "duration": "PT2H25M",
+                    "id": "2",
+                    "numberOfStops": 1,
+                    "blacklistedInEU": false
+                },
+                {
+                    "departure": {
+                        "iataCode": "BLR",
+                        "at": "2021-12-19T21:00:00"
+                    },
+                    "arrival": {
+                        "iataCode": "DEL",
+                        "terminal": "3",
+                        "at": "2021-12-19T23:55:00"
+                    },
+                    "carrierCode": "AI",
+                    "number": "808",
+                    "aircraft": {
+                        "code": "32B"
+                    },
+                    "duration": "PT2H55M",
+                    "id": "3",
+                    "numberOfStops": 0,
+                    "blacklistedInEU": false
+                }
+            ]
+        },
+        {
+            "duration": "PT3H10M",
+            "segments": [
+                {
+                    "departure": {
+                        "iataCode": "DEL",
+                        "terminal": "3",
+                        "at": "2022-01-01T14:10:00"
+                    },
+                    "arrival": {
+                        "iataCode": "COK",
+                        "terminal": "1",
+                        "at": "2022-01-01T17:20:00"
+                    },
+                    "carrierCode": "AI",
+                    "number": "512",
+                    "aircraft": {
+                        "code": "32B"
+                    },
+                    "duration": "PT3H10M",
+                    "id": "6",
+                    "numberOfStops": 0,
+                    "blacklistedInEU": false
+                }
+            ]
+        }
+    ],
+    "price": {
+        "currency": "INR",
+        "total": 37854.0,
+        "base": 33520.0,
+        "fees": [
+            {
+                "amount": 0.0,
+                "type": "SUPPLIER"
+            },
+            {
+                "amount": 0.0,
+                "type": "TICKETING"
+            }
+        ],
+        "grandTotal": 37854.0
+    },
+    "pricingOptions": {
+        "includedCheckedBagsOnly": true,
+        "fareType": [
+            "PUBLISHED"
+        ],
+        "refundableFare": false,
+        "noRestrictionFare": false,
+        "noPenaltyFare": false
+    },
+    "validatingAirlineCodes": [
+        "AI"
+    ],
+    "travelerPricings": [
+        {
+            "travelerId": "1",
+            "fareOption": "STANDARD",
+            "travelerType": "ADULT",
+            "price": {
+                "currency": "INR",
+                "total": 18927.0,
+                "base": 16760.0,
+                "grandTotal": 0.0
+            },
+            "fareDetailsBySegment": [
+                {
+                    "segmentId": "2",
+                    "cabin": "ECONOMY",
+                    "fareBasis": "SIP9I",
+                    "class": "S",
+                    "includedCheckedBags": {
+                        "weight": 15,
+                        "weightUnit": "KG"
+                    }
+                },
+                {
+                    "segmentId": "3",
+                    "cabin": "ECONOMY",
+                    "fareBasis": "SIP",
+                    "class": "S",
+                    "includedCheckedBags": {
+                        "weight": 15,
+                        "weightUnit": "KG"
+                    }
+                },
+                {
+                    "segmentId": "6",
+                    "cabin": "ECONOMY",
+                    "fareBasis": "SIP",
+                    "class": "S",
+                    "includedCheckedBags": {
+                        "weight": 25,
+                        "weightUnit": "KG"
+                    }
+                }
+            ]
+        },
+        {
+            "travelerId": "2",
+            "fareOption": "STANDARD",
+            "travelerType": "ADULT",
+            "price": {
+                "currency": "INR",
+                "total": 18927.0,
+                "base": 16760.0,
+                "grandTotal": 0.0
+            },
+            "fareDetailsBySegment": [
+                {
+                    "segmentId": "2",
+                    "cabin": "ECONOMY",
+                    "fareBasis": "SIP9I",
+                    "class": "S",
+                    "includedCheckedBags": {
+                        "weight": 15,
+                        "weightUnit": "KG"
+                    }
+                },
+                {
+                    "segmentId": "3",
+                    "cabin": "ECONOMY",
+                    "fareBasis": "SIP",
+                    "class": "S",
+                    "includedCheckedBags": {
+                        "weight": 15,
+                        "weightUnit": "KG"
+                    }
+                },
+                {
+                    "segmentId": "6",
+                    "cabin": "ECONOMY",
+                    "fareBasis": "SIP",
+                    "class": "S",
+                    "includedCheckedBags": {
+                        "weight": 25,
+                        "weightUnit": "KG"
+                    }
+                }
+            ]
+        }
+    ]
+}
 
         export default req;

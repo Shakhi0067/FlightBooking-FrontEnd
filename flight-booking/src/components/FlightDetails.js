@@ -1,67 +1,67 @@
 import React from 'react'
 import '../styles/container.css'
+import BoundDetails from './BoundDetails';
 
-function FlightDetails() {
+function FlightDetails({outBoundSegments, inBoundSegments}) {
+
+    const timeResolver = (data) => {
+        const dateObj = new Date(data);
+        return(dateObj.toTimeString().split(" ")[0].slice(0,-3));
+    }
+
+    const durationResolver = (data) => {
+        var duration = data.slice(2);
+        var index = duration.indexOf('H')+1;
+        duration = duration.slice(0,index)+" "+ duration.slice(index);
+        return(duration);
+    }
+
+    const dateResolver = (data) => {
+        var date = new Date(data);
+        var year = date.getFullYear();
+        var month = date.getMonth()+1;
+        var dt = date.getDate();
+
+        if (dt < 10) {
+            dt = '0' + dt;
+        }
+        if (month < 10) {
+            month = '0' + month;
+        }
+
+        return(dt + '-' + month + '-' + year );
+    }
+
+    const resolvers = {
+        'timeResolver': timeResolver,
+        'dateResolver': dateResolver,
+        'durationResolver': durationResolver,
+    }
+
+
     return (
         <div className="container-flight-details container " >
             <div className="row">
-                <h2>Airline Name/code</h2>
+                <h2>Airline name/code</h2>
  
-                <div>
-                    <h2 className="date">Thursday, Nov 25</h2>
+                <div className="date">
+                    <h2 >Thursday, Nov 25</h2>
                 </div>
+                <h2>Passenger(s): 1</h2>
                 <div className="cabin">
                     <h3>Class:</h3>
                     <h2>Premium Economy</h2>
                 </div>
             </div>
 
-            <div className="details">
+            <BoundDetails BoundSegments={outBoundSegments} resolvers={resolvers}/>
 
-                <div className="flight-details">
-                    <div className="airport-row">
-                        <h3>07:55</h3>
-                        <span className="dot"></span>
-                        <div className="airport">
-                            <h3>New Delhi</h3>
-                            <p>Indira Gandhi International Airport <br/> Terminal 1</p>
-                        </div>
-                    </div>
+            {inBoundSegments && 
+            <h2>Return details:</h2>}
+            {inBoundSegments && 
+            <BoundDetails BoundSegments={inBoundSegments} resolvers={resolvers}/>}
 
-                    <div className="duration">
-                        <p>02h 15m</p>
-                    </div>
-
-
-                    <div className="airport-row">
-                        <h3>13:20</h3>
-                        <span className="dot"></span>
-                        <div className="airport">
-                            <h3>Bengaluru</h3>
-                            <p>Bengaluru International Airport <br/> Terminal 1</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="passenger-details">
-                    <h2>Passesnger(s): 1</h2>
-                    <h3>Checked-in Baggage</h3>
-                    <div>
-                        
-                        <div className="baggage-row">
-                        <div className="baggage-col">
-                            <p>Weight</p>
-                            <h3>15 Kg</h3>
-                        </div>
-                        <div className="baggage-col" >
-                            <p>Quantity</p>
-                            <h3>2</h3>
-                        </div>
-                    </div>
-                        </div>
-                        
-                </div>
-            </div>
+            
         </div>
     )
 }
