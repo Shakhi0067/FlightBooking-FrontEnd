@@ -19,7 +19,7 @@ function BoundDetails({BoundSegments, resolvers}) {
                         
                         <span className="dot"></span>
                         <div className="airport">
-                        <h3>{firstSegment.departure.iataCode}</h3>
+                            <h3>{firstSegment.departure.iataCode}</h3>
                             <p>{firstSegment.departure.iataCode} International Airport <br/>
                                 Terminal: {firstSegment.departure.terminal}
                             </p>

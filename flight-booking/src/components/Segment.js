@@ -1,8 +1,6 @@
 import React from 'react'
-import '../styles/container.css'
 
 function Segment({segment, resolvers}) {
-//console.log(segment);
 
     return (
         <>
