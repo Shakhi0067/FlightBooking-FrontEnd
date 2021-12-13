@@ -1,5 +1,4 @@
 import React from 'react'
-import '../styles/container.css'
 import BoundDetails from './BoundDetails';
 
 function FlightDetails({outBoundSegments, inBoundSegments}) {
