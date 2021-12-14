@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Switch, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import FlightList from './components/FlightList';
 import SelectedFlight from './components/SelectedFlight';
 import { useState } from 'react';

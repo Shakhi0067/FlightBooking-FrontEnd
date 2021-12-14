@@ -54,7 +54,8 @@ function BoundDetails({BoundSegments}) {
                     <div>                       
                         <div className="baggage-row">
                             <div className="baggage-col">
-                                <h3>{firstSegment.weight} {firstSegment.weightUnit}</h3>
+
+                                <h3>{firstSegment.weight} Kg</h3>
                             </div>
                                 
                         </div>

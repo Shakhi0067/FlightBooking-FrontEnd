@@ -9,7 +9,7 @@ function List({setSelectedOffer}) {
     const [flightOffers, setflightOffers] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
-    const query = "http://localhost:8080/flights?origin=COK&destination=DEL&departDate=2021-12-19&adults=2&travelClass=ECONOMY&returnDate=2022-01-01";
+    const query = "http://localhost:8080/flights?origin=JFK&destination=LON&departDate=2021-12-19&adults=2&travelClass=ECONOMY&returnDate=2022-01-01";
 
     useEffect(() => {
 

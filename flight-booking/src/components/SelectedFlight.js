@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import req from './Req'
 import FareSummary from './FareSummary'
 import FlightDetails from './FlightDetails'
 import '../styles/container.css'

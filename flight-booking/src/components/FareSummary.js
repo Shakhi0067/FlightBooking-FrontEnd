@@ -13,20 +13,20 @@ function FareSummary({travelers}) {
 
                 <div className="row">
                 <h3>Base Fare </h3>
-                <h3><span>&#8377;</span>{basicFare} </h3>
+                <h3><span>&#8377;</span>{basicFare.toLocaleString('en-IN')} </h3>
                 </div>
-                <p>{travelers.length} X <span>&#8377;</span> {travelers[0].basePrice}  </p>
+                <p>{travelers.length} X <span>&#8377;</span> {travelers[0].basePrice.toLocaleString('en-IN')}  </p>
                 <hr/>
 
                 <div className="row">
-                <h3>Fee & Surcharges </h3>
-                <h3><span>&#8377;</span>{tax} </h3>
+                <h3>Tax & Surcharges </h3>
+                <h3><span>&#8377;</span>{tax.toLocaleString('en-IN')} </h3>
                 </div>
                 <hr className="hr-thick" />
 
                 <div className="row">
                 <h2>Total Amount </h2>
-                <h2><span>&#8377;</span>{total}  </h2>
+                <h2><span>&#8377;</span>{total.toLocaleString('en-IN')}  </h2>
                 </div>
             </div>
         </div>

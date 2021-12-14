@@ -31,7 +31,7 @@ function Offer({offer, handleOfferClick}) {
                 <span>Mumbai</span>
             </div>
 
-            <h2><span>&#8377;</span>{offer.price.total}</h2>
+            <h2><span>&#8377;</span>{offer.price.total.toLocaleString('en-IN')}</h2>
 
         </div>
     )
