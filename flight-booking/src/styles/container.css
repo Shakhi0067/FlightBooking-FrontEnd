@@ -117,3 +117,7 @@ hr{
 .airport-row-date-time > p{
     font-size: 1em;
 }
+
+.loader{
+    margin: 25vh auto;   
+}

@@ -1,10 +1,10 @@
 import React from 'react'
+import { dateResolver, durationResolver, timeResolver } from './Resolvers';
 import Segment from './Segment';
 
-function BoundDetails({BoundSegments, resolvers}) {
+function BoundDetails({BoundSegments}) {
 
     const [firstSegment, ...segments] = [...BoundSegments];
-    console.log(segments)
 
     return (
         <>
@@ -13,8 +13,8 @@ function BoundDetails({BoundSegments, resolvers}) {
                 <div className="flight-details">
                     <div className="airport-row">
                         <div className="airport-row-date-time">
-                            <h3>{resolvers.timeResolver(firstSegment.departure.at)}</h3>
-                            <p >{resolvers.dateResolver(firstSegment.departure.at)}</p>
+                            <h3>{timeResolver(firstSegment.departure.at)}</h3>
+                            <p >{dateResolver(firstSegment.departure.at)}</p>
                         </div>
                         
                         <span className="dot"></span>
@@ -27,14 +27,14 @@ function BoundDetails({BoundSegments, resolvers}) {
                     </div>
 
                     <div className="duration">
-                        <p>{resolvers.durationResolver(firstSegment.duration)}</p>
+                        <p>{durationResolver(firstSegment.duration)}</p>
                     </div>
 
 
                     <div className="airport-row">
                         <div className="airport-row-date-time">
-                            <h3>{resolvers.timeResolver(firstSegment.arrival.at)}</h3>
-                            <p >{resolvers.dateResolver(firstSegment.arrival.at)}</p>
+                            <h3>{timeResolver(firstSegment.arrival.at)}</h3>
+                            <p >{dateResolver(firstSegment.arrival.at)}</p>
                         </div>
                         <span className="dot"></span>
                         <div className="airport">
@@ -45,8 +45,7 @@ function BoundDetails({BoundSegments, resolvers}) {
                         </div>
                     </div>
                     
-                    {segments.map((segment) => <Segment segment={segment} resolvers={resolvers} 
-                        key={segment.arrival.iataCode} />)}
+                    {segments.map((segment) => <Segment segment={segment} key={segment.arrival.iataCode} />)}
                     
                 </div>
 
@@ -55,7 +54,7 @@ function BoundDetails({BoundSegments, resolvers}) {
                     <div>                       
                         <div className="baggage-row">
                             <div className="baggage-col">
-                                <h3>{firstSegment.weight} {firstSegment.weightUnit} /per person</h3>
+                                <h3>{firstSegment.weight} {firstSegment.weightUnit}</h3>
                             </div>
                                 
                         </div>

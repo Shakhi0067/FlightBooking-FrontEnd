@@ -1,14 +1,15 @@
 import React from 'react'
+import { dateResolver, durationResolver, timeResolver } from './Resolvers'
 
-function Segment({segment, resolvers}) {
+function Segment({segment}) {
 
     return (
         <>
             <hr/>
             <div className="airport-row">
                 <div className="airport-row-date-time">
-                    <h3>{resolvers.timeResolver(segment.departure.at)}</h3>
-                    <p >{resolvers.dateResolver(segment.departure.at)}</p>
+                    <h3>{timeResolver(segment.departure.at)}</h3>
+                    <p >{dateResolver(segment.departure.at)}</p>
                 </div>
                 <span className="dot"></span>
                 <div className="airport">
@@ -20,14 +21,14 @@ function Segment({segment, resolvers}) {
             </div>
 
             <div className="duration">
-                <p>{resolvers.durationResolver(segment.duration)}</p>
+                <p>{durationResolver(segment.duration)}</p>
             </div>
 
 
             <div className="airport-row">
                 <div className="airport-row-date-time">
-                    <h3>{resolvers.timeResolver(segment.arrival.at)}</h3>
-                    <p >{resolvers.dateResolver(segment.arrival.at)}</p>
+                    <h3>{timeResolver(segment.arrival.at)}</h3>
+                    <p >{dateResolver(segment.arrival.at)}</p>
                 </div>
                 <span className="dot"></span>
                 <div className="airport">

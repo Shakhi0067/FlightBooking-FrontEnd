@@ -1,57 +1,53 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Table } from 'react-bootstrap'
 import  '../styles/list.css';
-function List() {
-    const [flights, setflights] = useState([])
+import Offer from './Offer';
+import Loader from './Loader';
+import { useNavigate } from 'react-router-dom';
 
-    const refreshList=()=>{
-        const url = 'http://jsonplaceholder.typicode.com/users'
-        axios.get(url).then((response) => {
-            setflights(response.data)
-        })
+function List({setSelectedOffer}) {
+    const [flightOffers, setflightOffers] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
+    const navigate = useNavigate();
+    const query = "http://localhost:8080/flights?origin=COK&destination=DEL&departDate=2021-12-19&adults=2&travelClass=ECONOMY&returnDate=2022-01-01";
+
+    useEffect(() => {
+
+        const getOffers = async(query) => {
+            console.log("calling api 2");
+            const response = await axios.get(query);
+            if(response.status === 200){
+                setflightOffers(() => response.data);
+                setIsLoading(() => false);
+            }
+            
+        }
+        getOffers(query);
+    }, [])
+
+    const handleOfferClick = (offer) =>{
+        console.log("clicked!!!! ",offer.id)
+        setSelectedOffer(() => offer);
+        navigate('/flight');
     }
 
-
-   useEffect(()=>{
-       refreshList()
-   },[])
+    //console.log(flightOffers);
     return (
-        <div>
-            
-            <center><h1 className='Flight_Heading'>Best Flights </h1></center>
-            
-            <hr width="900px;" size="2" className='border'/>
-            <Table>
-           
-            <tbody>
-            {
-                        flights.filter((flight, idx) => idx < 3).map((flight)=>{
-                            return(
-                                <>
-                                <tr key={flight.id} className='Clickable'>
-                                <td><b>{flight.id}</b></td>
-                                <td>{flight.name}</td>
-                                <td>{flight.username}</td>
-                                <td>{flight.email}<hr className='duration'/></td>
-                                <td>
-                                    {flight.address.street}<br/>
-                                    {flight.address.city}:{flight.suite}
-                                </td>
-                                <td>
-                                {flight.company.name}<br/>
-                                    {flight.company.bs}:{flight.catchPhrase}</td>
-                                <td>{flight.phone}</td>
-                                </tr>
-                                <br/>
-                                </>
-                            )
-                        })
-                    }
-                     
-                </tbody>
-            </Table>
-        </div>
+        <>
+       
+        <div className="list_box">         
+            <h1 className='Flight_Heading'>Best Flights For You</h1>
+            <hr className='border'/>
+
+            {isLoading? <Loader color={'rgba(210, 211, 231, 0.89)'}/> :
+            <div className='search-results'>
+                {flightOffers.map((offer) => <Offer offer={offer} key={offer.id}
+                        handleOfferClick={handleOfferClick} />)}               
+            </div>
+            }
+        </div> 
+        
+        </>
         )
     }
 export default  List;
