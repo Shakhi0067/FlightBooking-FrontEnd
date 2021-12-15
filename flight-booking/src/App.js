@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import FlightList from './components/FlightList';
+
 import SearchLocations from './components/SearchLocations';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
     data: {},
     price: {}
   }
-
+ 
   componentDidMount() {
     fetch('http://localhost:8080/api/flights?origin=COK&destination=LON&departDate=2022-01-25&adults=3&travelClass=ECONOMY&returnDate=2022-01-26')
       .then(res => res.json()).then((data) => {
@@ -26,8 +27,8 @@ class App extends Component {
   render() {
     return (
     <>
-      <FlightList flights={this.state} />
-      <SearchLocations/>
+      <SearchLocations />
+      
       </>
     )
   }

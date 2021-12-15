@@ -4,16 +4,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import Autosuggest from "react-autosuggest";
-
+import moment from 'moment';
 
 
 
 function SearchLocations() {
   
- const [depaturedate, setdepaturedate] = useState(new Date())
- const [arrivaldate, setarrivaldate] = useState(new Date())
-  const [selectedRadio, setSelectedRadio] = useState(" ");
-  const HandleChangeValue = (e) => {
+ 
+ const [depaturedate, setdepaturedate] = useState()
+ const [arrivaldate, setarrivaldate] = useState()
+ const [selectedRadio, setSelectedRadio] = useState(" ");
+ const HandleChangeValue = (e) => {
     setSelectedRadio(e.target.value);
 };
 
@@ -23,14 +24,14 @@ const [location, setLocation] = React.useState("");
 const [suggestion, setSuggestion] = React.useState([]);
 
 
-function SubmitData(e){
+ function SubmitData(e){
   e.preventDefault();
  
   var type="";
-  if(selectedRadio=="Enable"){
+  if(selectedRadio==="Enable"){
     type="Round Trip"
   }
-  else if(selectedRadio=="Disable")
+  else if(selectedRadio==="Disable")
   {
     type="One Way"
   }
@@ -38,7 +39,7 @@ function SubmitData(e){
   else{
   type ="Round Trip"
   }
-  
+     
 
   var passengercount=document.getElementById('passenger').value;
   var travelclass=document.getElementById('travelclass').value;
@@ -47,45 +48,73 @@ function SubmitData(e){
   var arrivaldates=arrivaldate;
   var depaturedates=depaturedate;
  
-  const now = new Date();
+  var arrivalDate =document.getElementById('calender').value;
+  var depatureDate =document.getElementById('calender2').value;
+
+
+   /* let arrivalDate =arrivaldates.getFullYear() + "-" + (arrivaldates.getMonth() + 1) + "-" +arrivaldates.getDate() ;
+let depatureDate =depaturedates.getFullYear() + "-" + (depaturedates.getMonth() + 1) + "-" +depaturedates.getDate() ;*/
+
+
+
+var originCode=country.split(', ').pop();
+var destinCode=location.split(', ').pop();
+
+var data=new Object();
+if(selectedRadio==="Enable"){
+  data={
+    originLocationCode: originCode,
+    destinationLocationCode: destinCode,
+    returnDate:  arrivalDate ,
+    departDate: depatureDate,
+    travelClass: travelclass,
+    adults: passengercount,
+    triptype: type
+  }
+}
+else if(selectedRadio==="Disable"){
+  data={
+    originLocationCode: originCode,
+    destinationLocationCode: destinCode,
+    departDate: depatureDate,
+    travelClass: travelclass,
+    adults: passengercount,
+    triptype: type
+  }
+}
+else{
+  data={
+    originLocationCode: originCode,
+    destinationLocationCode: destinCode,
+    returnDate:  arrivalDate ,
+    departDate: depatureDate,
+    travelClass: travelclass,
+    adults: passengercount,
+    triptype: type
+  }
+}
+
+const now = new Date();
 if(origin===""){
 
-  alert("provide origin");
+  alert("provide Origin");
 }
 else if(destination===""){
-  alert("provide destination");
+  alert("provide Destination");
 }
-else if(arrivaldates<=now){
-alert("Date must be in the future");
+
+else if(arrivaldates<=depaturedates){
+alert("Date must be in the future return date");
 }
 else if(depaturedates<=now){
   alert("Date must be in the future");
 }
-
-const dataWithOneWAY={
-  origin: country,
-  destination: location,
-  depaturedate: depaturedate,
-  cabin: travelclass,
-  travellers: passengercount,
-  triptype: type
+else{
+  console.log(data)
 }
-console.log(dataWithOneWAY)
 
-const dataWithRoundTrip={
-  origin: country,
-  destination: location,
-  arrivaldate: arrivaldate,
-  depaturedate: depaturedate,
-  cabin: travelclass,
-  travellers: passengercount,
-  triptype: type
 }
-console.log(dataWithRoundTrip)
-
-
-
-}  
+  
 
     
 
@@ -95,46 +124,48 @@ console.log(dataWithRoundTrip)
     <div >
  
 
-      <div class="container-fluid" > 
+      <div className="container-fluid" > 
 
-        <div id="search-form" >
+        <div id="search-form"  >
 
-          <div id="header" style={{ "padding-left": "12px", "border-bottom": "1px solid","border-color": "rgba(210, 211, 231, 0.89)" }}>
+          <div id="header" style={{ "paddingLeft": "12px", "borderBottom": "1px solid","borderColor": "rgba(210, 211, 231, 0.89)" }}>
             <h2>Book Your Flight Ticket</h2>
           </div>
-          <div class="flight" id="flightbox">
+          <div className="flight" id="flightbox">
 
             <form id="flight-form" >
 
 
 
-              <div class="row">
-                <div class="col-sm-3">
-                  <label class="rad-label">
-                    <input type="radio" class="rad-input" id="one" name="rad" value={"Disable"}  onChange={HandleChangeValue} />
-                    <div class="rad-design"></div>
-                    <div class="rad-text">One Way</div>
+              <div className="row">
+              
+                <div className="col-sm-3">
+                  <label className="rad-label">
+                    <input type="radio" class="rad-input" id="round" name="rad"  value={"Enable"} onChange={HandleChangeValue} defaultChecked />
+                    <div className="rad-design"></div>
+                    <div className="rad-text">Round Trip</div>
                   </label>
                 </div>
 
-                <div class="col-sm-3">
-                  <label class="rad-label">
-                    <input type="radio" class="rad-input" id="round" name="rad"  value={"Enable"} onChange={HandleChangeValue} defaultChecked />
-                    <div class="rad-design"></div>
-                    <div class="rad-text">Round Trip</div>
+                <div className="col-sm-3">
+                  <label className="rad-label">
+                    <input type="radio" class="rad-input" id="one" name="rad" value={"Disable"}  onChange={HandleChangeValue} />
+                    <div className="rad-design"></div>
+                    <div className="rad-text">One Way</div>
                   </label>
                 </div>
               </div>
 
 
-              <div class="row">
-                <div class="col-sm-2">
-                  <div class="info-box" >
+              <div className="row">
+                <div className="col-sm-2">
+                  <div className="info-box" >
                 
                     <label for="">Flying From</label>
-                    <div id="arrive-box1">
-                    <Autosuggest id= "origin" inputProps={{
-                placeholder: "origin",
+                    <div id="arrive-box1" style={{ "backgroundColor": "white"}}>
+                  
+                    <Autosuggest inputProps={{
+                placeholder: "Origin",
                 autoComplete: "abcd",
                 value: country,
                 name: "country",
@@ -156,8 +187,10 @@ console.log(dataWithRoundTrip)
 
                   setSuggestions(
                     response.data.map(row => ({
-                      name: row.name
-                    
+                      name: row.name,
+                      city: row.cityname,
+                      countryname:row.countryName,
+                      iata:row.iataCode
                     }))
                   );
                 } catch (e) {
@@ -167,15 +200,19 @@ console.log(dataWithRoundTrip)
               onSuggestionsClearRequested={() => {
                 setSuggestions([]);
               }}
-              getSuggestionValue={suggestion => suggestion.name}
+              getSuggestionValue={suggestion => (suggestion.name+", "+suggestion.city+", "+suggestion.countryname+", "+suggestion.iata)}
               renderSuggestion={suggestion => (
-                <div>
+                <div >
                 
-                  {suggestion.name}
+                  {suggestion.name}<br/>
+                  {suggestion.city},{" "}
+                  {suggestion.iata},{" "}
+                  {suggestion.countryname}
+                 
                 </div>
               )}
+            
               />
-              
                   </div>
                   </div>
                 </div>
@@ -183,11 +220,11 @@ console.log(dataWithRoundTrip)
 
                 <div class="col-sm-2">
                   <div class="info-box" >
-             
+                                                                                  
                     <label for="">Flying To</label>
-                   <div id="arrive-box2">
-                    <Autosuggest id= "destination" inputProps={{
-                placeholder:  "destination",
+                   <div id="arrive-box2" style={{ "backgroundColor": "white" }}>
+               <Autosuggest  inputProps={{
+                placeholder:  "Destination",
                 autoComplete: "abcd",
                 value: location,
                 name: "location",
@@ -209,7 +246,10 @@ console.log(dataWithRoundTrip)
 
                   setSuggestion(
                     response.data.map(row => ({
-                      name: row.name
+                      name: row.name,
+                      city: row.cityname,
+                      countryname:row.countryName,
+                      iata:row.iataCode
                     
                     }))
                   );
@@ -220,10 +260,15 @@ console.log(dataWithRoundTrip)
               onSuggestionsClearRequested={() => {
                 setSuggestion([]);
               }}
-              getSuggestionValue={suggestion => suggestion.name}
+              getSuggestionValue={suggestion => (suggestion.name+", "+suggestion.city+", "+suggestion.countryname+", "+suggestion.iata)}
               renderSuggestion={suggestion => (
                 <div>
-                  {suggestion.name}
+                 {suggestion.name}<br/>
+                  {suggestion.city},{" "}
+                  {suggestion.iata},{" "}
+                  {suggestion.countryname}
+                 
+                 
                 </div>
               )}
               />
@@ -231,28 +276,27 @@ console.log(dataWithRoundTrip)
                  </div>
                   </div>
                
-
-                <div class="col-sm-2">
-                  <div class="info-box" >
+                
+                <div className="col-sm-2">
+                  <div className="info-box" >
                  
-                    <label for="">Depaturing Date</label>
-                    <DatePicker className="date" id="calender" selected={depaturedate}  onChange={(depature)=>setdepaturedate(depature)} /><br /><br />
+                    <label >Depaturing Date</label>
+                    <DatePicker  className="date" id="calender" selected={depaturedate}  onChange={(depature)=>setdepaturedate(depature) } dateFormat={'yyyy-MM-dd'} /><br /><br />
                   </div>
                 </div>
 
-                <div class="col-sm-2" >
-                  <div  >
-                  <div class="info-box" style={{ "display ": "none" }}>
+                <div className="col-sm-2" >
+                  <div className="info-box" >
                     <label for="">Returning Date</label>
-                    <DatePicker  disabled={selectedRadio === "Disable"} className="date" id="calender2" selected={arrivaldate} onChange={(arrival)=>setarrivaldate(arrival)} defaultChecked/><br /><br />
+                    <DatePicker  disabled={selectedRadio === "Disable"} className="date" id="calender2"  selected={arrivaldate}  onChange={(arrival)=>setarrivaldate (arrival)}  dateFormat={'yyyy-MM-dd'}defaultChecked/><br /><br />
                     </div>
                   </div>
-                </div>
+              
           
-                <div class="col-sm-2">
-                  <div class="info-box">
+                <div className="col-sm-2">
+                  <div className="info-box">
                   
-                    <label for="class-type" style={{ "margin-bottom": "1px" }}>Travel Class</label>
+                    <label for="class-type" style={{ "marginBottom": "1px" }}>Travel Class</label>
                     <select name="travlclas" id="travelclass">
                       <option value="Economy">Economy</option>
                       <option value="Premium Economy">Premium Economy</option>
@@ -263,10 +307,10 @@ console.log(dataWithRoundTrip)
                 </div>
 
 
-                <div class="col-sm-2">
+                <div className="col-sm-2">
                   <div id="flight-info" >
-                    <div class="info-box">
-                      <label for="adults" style={{ "margin-bottom": "1px" }}>Passengers</label>
+                    <div className="info-box">
+                      <label for="adults" style={{ "marginBottom": "1px" }}>Passengers</label>
                       <select name="peoples" id="passenger" style={{ "width": "140px" }}>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -277,14 +321,15 @@ console.log(dataWithRoundTrip)
                     </div>
                   </div>
                 </div>
+
               </div>
 
 
-              <div class="row">
+              <div className="row">
                 <div id="flight-search">
-                  <div class="info-box">
+                  <div className="info-box">
                   
-                    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true"  onClick={SubmitData} >Search</a>
+                    <a href="#" className="btn btn-primary btn-lg active" role="button" aria-pressed="true"  onClick={SubmitData} >Search</a>
                   </div>
                 </div>
               </div>
@@ -292,7 +337,9 @@ console.log(dataWithRoundTrip)
             </form>
           </div>
         </div>
+       
       </div>
+  
     </div>
   )
 }
