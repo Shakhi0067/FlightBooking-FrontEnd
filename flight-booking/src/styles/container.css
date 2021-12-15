@@ -42,6 +42,7 @@ hr{
     background-color: #efd2ab;
     border-radius: 10px;
     padding: 0 5px;
+    max-height: 4.5em;
 }
 
 .cabin{
@@ -99,7 +100,7 @@ hr{
     width: 40%;
 }
 
-.passenger-details, .baggage-col, .airport-row-date-time{
+.passenger-details, .baggage-col, .airport-row-date-time, .airline{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -120,4 +121,9 @@ hr{
 
 .loader{
     margin: 25vh auto;   
+}
+
+.airline *{
+    margin:0;
+  
 }

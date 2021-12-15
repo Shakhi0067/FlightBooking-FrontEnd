@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const timeResolver = (data) => {
     const dateObj = new Date(data);
     return(dateObj.toTimeString().split(" ")[0].slice(0,-3));
@@ -26,4 +28,15 @@ const dateResolver = (data) => {
     return(dt + '-' + month + '-' + year );
 }
 
-export {timeResolver, dateResolver, durationResolver};
+const logoResolver = async(airlineCode) => {
+    const URL = `https://pics.avs.io/200/200/${airlineCode}.png`;
+    // const response = await axios.get(URL);
+    // if(response.status === 200){
+    //     // return (response.data);
+    //     console.log(response.data)
+    // }
+    return <img src={URL} alt="-"/>
+
+}
+
+export {timeResolver, dateResolver, durationResolver, logoResolver};

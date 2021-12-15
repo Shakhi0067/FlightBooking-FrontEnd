@@ -65,6 +65,7 @@ function SelectedFlight({selectedOffer}) {
             console.log("calling api 3");
             const response = await axios.post(URL, req);
             if(response.status === 200){
+                console.log(response.data)
                 setRes(() => response.data);
                 setIsLoading(() => false);
             }

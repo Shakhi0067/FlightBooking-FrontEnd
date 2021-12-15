@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from './Logo';
 import { dateResolver, durationResolver, timeResolver } from './Resolvers'
 
 function Offer({offer, handleOfferClick}) {
@@ -12,6 +13,7 @@ function Offer({offer, handleOfferClick}) {
 
     return (
         <div className='offer-row' onClick={() => handleOfferClick(offer)}>
+            <Logo airlineCode={carrierCode}/>
             <h2>{carrierCode} {number}</h2>
 
             <div className='col-wrapper'>

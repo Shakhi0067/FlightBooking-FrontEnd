@@ -9,13 +9,22 @@ function List({setSelectedOffer}) {
     const [flightOffers, setflightOffers] = useState([])
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
-    const query = "http://localhost:8080/flights?origin=JFK&destination=LON&departDate=2021-12-19&adults=2&travelClass=ECONOMY&returnDate=2022-01-01";
+    const query = "http://localhost:8080/flights";
+
+    const inp = {
+        "originLocationCode": "COK",
+        "destinationLocationCode": "LON",
+        "departureDate" : "2021-12-25",
+        "adults":2,
+        "returnDate":"2021-12-30",
+        "travelClass":"ECONOMY"
+    }
 
     useEffect(() => {
 
         const getOffers = async(query) => {
             console.log("calling api 2");
-            const response = await axios.get(query);
+            const response = await axios.post(query,inp);
             if(response.status === 200){
                 setflightOffers(() => response.data);
                 setIsLoading(() => false);
