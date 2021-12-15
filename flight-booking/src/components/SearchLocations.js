@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import Autosuggest from "react-autosuggest";
-import moment from 'moment';
 
 
 
@@ -52,8 +51,7 @@ const [suggestion, setSuggestion] = React.useState([]);
   var depatureDate =document.getElementById('calender2').value;
 
 
-   /* let arrivalDate =arrivaldates.getFullYear() + "-" + (arrivaldates.getMonth() + 1) + "-" +arrivaldates.getDate() ;
-let depatureDate =depaturedates.getFullYear() + "-" + (depaturedates.getMonth() + 1) + "-" +depaturedates.getDate() ;*/
+ 
 
 
 
