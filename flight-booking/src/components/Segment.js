@@ -1,8 +1,9 @@
-import React from 'react'
 import { dateResolver, durationResolver, timeResolver } from './Resolvers'
 
-function Segment({segment}) {
+function Segment({segment, index,segmentLength,searchData}) {
 
+    const isLastSegment = index === segmentLength;
+  
     return (
         <>
             <hr/>
@@ -14,8 +15,9 @@ function Segment({segment}) {
                 <span className="dot"></span>
                 <div className="airport">
                     <h3>{segment.departure.iataCode}</h3>
-                    <p>{segment.departure.iataCode} International Airport <br/>
-                        Terminal: {segment.departure.terminal}
+                    <p>{segment.departure.iataCode} AIRPORT <br/>
+                        {segment.departure.terminal &&
+                            <span> Terminal: {segment.departure.terminal}</span>}
                     </p>
                 </div>
             </div>
@@ -32,9 +34,10 @@ function Segment({segment}) {
                 </div>
                 <span className="dot"></span>
                 <div className="airport">
-                    <h3>{segment.arrival.iataCode}</h3>
-                    <p>{segment.arrival.iataCode} International Airport <br/>
-                        Terminal: {segment.arrival.terminal}
+                    <h3>{isLastSegment?searchData.destinationCity : segment.arrival.iataCode}</h3>
+                    <p>{isLastSegment?searchData.destinationAirport :segment.arrival.iataCode} AIRPORT <br/>
+                        {segment.arrival.terminal &&
+                            <span> Terminal: {segment.arrival.terminal}</span>}
                     </p>
                 </div>
             </div>

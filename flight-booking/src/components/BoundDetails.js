@@ -2,7 +2,7 @@ import React from 'react'
 import { dateResolver, durationResolver, timeResolver } from './Resolvers';
 import Segment from './Segment';
 
-function BoundDetails({BoundSegments}) {
+function BoundDetails({BoundSegments, searchData}) {
 
     const [firstSegment, ...segments] = [...BoundSegments];
 
@@ -19,9 +19,10 @@ function BoundDetails({BoundSegments}) {
                         
                         <span className="dot"></span>
                         <div className="airport">
-                            <h3>{firstSegment.departure.iataCode}</h3>
-                            <p>{firstSegment.departure.iataCode} International Airport <br/>
-                                Terminal: {firstSegment.departure.terminal}
+                            <h3>{searchData.originCity}</h3>
+                            <p>{searchData.originAirport} AIRPORT <br/>
+                            {firstSegment.departure.terminal &&
+                                <span> Terminal: {firstSegment.departure.terminal}</span>}
                             </p>
                         </div>
                     </div>
@@ -38,14 +39,17 @@ function BoundDetails({BoundSegments}) {
                         </div>
                         <span className="dot"></span>
                         <div className="airport">
-                            <h3>{firstSegment.arrival.iataCode}</h3>
-                            <p>{firstSegment.arrival.iataCode} International Airport <br/>
-                                Terminal: {firstSegment.arrival.terminal}
+                            <h3>{segments.length===0? searchData.destinationCity : firstSegment.arrival.iataCode}</h3>
+                            <p>{segments.length===0? searchData.destinationAirport :firstSegment.arrival.iataCode} AIRPORT <br/>
+                               {firstSegment.arrival.terminal &&
+                                <span> Terminal: {firstSegment.arrival.terminal}</span>}
                             </p>
                         </div>
                     </div>
                     
-                    {segments.map((segment) => <Segment segment={segment} key={segment.arrival.iataCode} />)}
+                    {segments.map((segment, index) => <Segment segment={segment} key={segment.arrival.iataCode} 
+                                                        index={index} segmentLength={segments.length-1}
+                                                            searchData={searchData}/>)}
                     
                 </div>
 

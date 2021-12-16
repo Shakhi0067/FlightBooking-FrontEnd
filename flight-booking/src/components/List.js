@@ -5,34 +5,26 @@ import Offer from './Offer';
 import Loader from './Loader';
 import { useNavigate } from 'react-router-dom';
 
-function List({setSelectedOffer}) {
+function List({searchData,setSelectedOffer}) {
     const [flightOffers, setflightOffers] = useState([])
+    //const [searchInput, setSearchInput] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const query = "http://localhost:8080/flights";
 
-    const inp = {
-        "originLocationCode": "COK",
-        "destinationLocationCode": "LON",
-        "departureDate" : "2021-12-25",
-        "adults":2,
-        "returnDate":"2021-12-30",
-        "travelClass":"ECONOMY"
-    }
-
     useEffect(() => {
 
-        const getOffers = async(query) => {
+        const getOffers = async(searchData) => {
             console.log("calling api 2");
-            const response = await axios.post(query,inp);
+            const response = await axios.post(query,searchData);
             if(response.status === 200){
                 setflightOffers(() => response.data);
                 setIsLoading(() => false);
             }
             
         }
-        getOffers(query);
-    }, [])
+        getOffers(searchData);
+    }, [searchData])
 
     const handleOfferClick = (offer) =>{
         console.log("clicked!!!! ",offer.id)
@@ -49,10 +41,12 @@ function List({setSelectedOffer}) {
             <hr className='border'/>
 
             {isLoading? <Loader color={'rgba(210, 211, 231, 0.89)'}/> :
-            <div className='search-results'>
-                {flightOffers.map((offer) => <Offer offer={offer} key={offer.id}
-                        handleOfferClick={handleOfferClick} />)}               
-            </div>
+                flightOffers.length>0?
+                    <div className='search-results'>
+                        {flightOffers.map((offer) => <Offer offer={offer} key={offer.id}
+                                handleOfferClick={handleOfferClick} origin={searchData.originCity} 
+                                    destination={searchData.destinationCity} />)}               
+                    </div>: <h2>Sorry! No such flights available.</h2>
             }
         </div> 
         

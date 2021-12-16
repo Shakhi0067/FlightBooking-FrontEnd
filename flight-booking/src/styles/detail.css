@@ -7,10 +7,12 @@
 .detail_box{
     width: 31vw;
     height: 70vh;
-    background-color: rgba(210, 211, 231, 0.89);
+    background-color: #D2D3E7;
     border-radius: 10px;
     box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 4em;
+    margin-top: 4em;
   }

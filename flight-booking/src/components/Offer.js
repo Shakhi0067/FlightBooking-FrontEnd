@@ -2,7 +2,7 @@ import React from 'react'
 import Logo from './Logo';
 import { dateResolver, durationResolver, timeResolver } from './Resolvers'
 
-function Offer({offer, handleOfferClick}) {
+function Offer({offer, handleOfferClick, origin, destination}) {
 
     const segments = offer.itineraries[0].segments;
     const {carrierCode, number} = {...segments[0]}
@@ -19,7 +19,7 @@ function Offer({offer, handleOfferClick}) {
             <div className='col-wrapper'>
                 <h2>{departureTime}</h2>
                 <h4>{departureDate}</h4>
-                <span>New Delhi</span>
+                <span>{origin}</span>
             </div>
                     
             <div className='col-wrapper'>
@@ -30,7 +30,7 @@ function Offer({offer, handleOfferClick}) {
             <div className='col-wrapper'>
                 <h2>{arrivalTime}</h2>
                 <h4>{arrivalDate}</h4>
-                <span>Mumbai</span>
+                <span>{destination}</span>
             </div>
 
             <h2><span>&#8377;</span>{offer.price.total.toLocaleString('en-IN')}</h2>

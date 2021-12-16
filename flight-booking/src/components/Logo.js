@@ -6,7 +6,6 @@ function Logo({airlineCode}) {
         <img
             src={URL}
             alt="-"
-            style={{border:"1px solid black;"}}
         />
     )
 }

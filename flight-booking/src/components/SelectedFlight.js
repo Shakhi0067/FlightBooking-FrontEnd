@@ -5,7 +5,7 @@ import '../styles/container.css'
 import axios from 'axios';
 import Loader from './Loader'
 
-function SelectedFlight({selectedOffer}) {
+function SelectedFlight({searchData, selectedOffer}) {
 
     const initialRes = {
         "travelers": [
@@ -79,7 +79,8 @@ function SelectedFlight({selectedOffer}) {
         <>
         {isLoading? <Loader color="#fff"/> :
         <div style={{"display": 'flex'}}>
-            <FlightDetails outBoundSegments={res.outBoundSegments} inBoundSegments={res.inBoundSegments}/>
+            <FlightDetails outBoundSegments={res.outBoundSegments} inBoundSegments={res.inBoundSegments} 
+                        searchData={searchData}/>
             <FareSummary travelers={res.travelers} />
         </div> }
         </>
