@@ -11,8 +11,15 @@ function BoundDetails({BoundSegments, searchData, isOutBound}) {
     useEffect(() => {  
 
         const getAirportName = async (code) => {
-            const response = await axios.get( `http://localhost:8080/locations/${code}`);            
-            setAirport(() => ({'city': response.data[0].cityname, 'airportName':response.data[0].name }));
+            const response = await axios.get( `http://localhost:8080/locations/${code}`); 
+            console.log(response)
+            if(response.data.length !== 0){
+                setAirport(() => ({'city': response.data[0].cityname, 'airportName':response.data[0].name }));
+            }
+            else{
+                setAirport(() => ({'city': firstSegment.arrival.iataCode, 'airportName':firstSegment.arrival.iataCode }));
+            }           
+            
         }
         
         getAirportName(firstSegment.arrival.iataCode);
