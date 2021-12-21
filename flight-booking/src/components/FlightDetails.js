@@ -36,7 +36,6 @@ function FlightDetails({outBoundSegments, inBoundSegments, searchData}) {
         <div className="container-flight-details container " >
             <div className="row">
                 
-                {/* <Logo airlineCode={outBoundSegments[0].carrierCode}/> */}
                 <div className='airline'>
                     <h2>{airlineName}</h2>
                     <h2> {outBoundSegments[0].carrierCode} {outBoundSegments[0].number}</h2>

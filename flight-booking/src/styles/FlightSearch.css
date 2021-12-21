@@ -1,17 +1,20 @@
 
 /* Search Form */
 
+body{
+    background-color: rgba(210, 211, 231, 0.89) !important;
+  }
   
     #search-form {
       width: auto;
       position: relative;
-      height:auto;
+      height:60vh;
       border-radius: 10px;
       box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
       backdrop-filter: blur(3px);
       display: grid;
       place-content: center;
-      padding: 40px;
+      padding: 10px 40px;
       font-family:Calibri,sans-serif;
       margin-left:40px;
       margin-right:40px ;
@@ -21,17 +24,19 @@
      
     }
     
-    #header {
-      height: 80px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    
-    }
-    #header h2 {
+    #header{
       color:#51459b; 
       margin-left: 20px;
-      font-family:"Verdana,sans-serif"
+
+    }
+
+    .row1{
+        display: flex;
+    }
+    .row{
+        max-width: 88vw;
+        padding-right: 50px;
+
     }
     
     .flight {
@@ -55,7 +60,7 @@
     
     .rad-label:hover,
     .rad-label:focus-within {
-      background: hsla(0, 0%, 80%, .14);
+        background: rgba(188, 170, 221, 0.34);
     }
     
     .rad-input {
@@ -112,12 +117,12 @@
   
     .info-box {
       padding: 0;
-      margin-top: 20px;
+      margin: 20px 0 30px;
       flex: 1;
       float: left;
       margin-right: 10px;
-      padding: 12px;
-      position: relative;  
+
+
     }
   
     .info-box label {
@@ -141,7 +146,8 @@
       height: 50px;
       margin-top: 8PX;
      }
-  
+
+
      #arrive-box2{
       border-radius: 10px;
       box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
@@ -156,17 +162,21 @@
       box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
       backdrop-filter: blur(3px);
       width: 200px;
-      height:50px;
+      height:40px;
       margin-top: 8PX;
+    }
+
+    .react-datepicker__input-container input{
+        background: "#000";
     }
   
     #calender2{
       border-radius: 10px;
       box-shadow: 9px 10px 14px 0px rgba(0, 0, 0, 0.28);
-      backdrop-filter: blur(3px);
       width: 200px;
-      height: 50px;
+      height: 40px;
       margin-top: 8PX;
+      background-color: "#000";
     }
   
     #passenger{
@@ -200,20 +210,18 @@
     }
     
    #flight-search{
-    width: 200px;
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;   
+       margin: 10px auto;
+       position: relative;
    }
   
     #flight-search a {
+      
       text-decoration: none;
       background:#51459b;
       color:white;
       text-align: center;
-      font-size: 2em;
-      padding: 5px 10px;
+      font-size: 1.8em;
+      padding: 7px 10px;
       border-radius: 10px;
       box-shadow: 5px 6px 8px 0px rgba(0, 0, 0, 0.28);
     }
@@ -270,10 +278,3 @@
         overflow: visible;
         line-height: 4;
         }
-      
-      .row1{
-        display: inline-flex;
-      }
-  
-  
-  

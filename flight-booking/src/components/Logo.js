@@ -5,7 +5,7 @@ function Logo({airlineCode}) {
     return (
         <img
             src={URL}
-            alt="-"
+            alt={airlineCode}
         />
     )
 }

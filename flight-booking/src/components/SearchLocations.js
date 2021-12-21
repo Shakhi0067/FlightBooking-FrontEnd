@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import '../styles/FlightSearch.css'
-import DatePicker from "react-datepicker";
+import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios'
 import Autosuggest from "react-autosuggest";
@@ -14,6 +14,7 @@ function SearchLocations({setSearchData}) {
  const [depaturedate, setdepaturedate] = useState()
  const [arrivaldate, setarrivaldate] = useState()
  const [selectedRadio, setSelectedRadio] = useState(" ");
+
  const HandleChangeValue = (e) => {
     setSelectedRadio(e.target.value);
 };
@@ -147,9 +148,11 @@ const navigate = useNavigate();
 
         <div id="search-form"  >
 
-          <div id="header" style={{ "paddingLeft": "12px", "borderBottom": "1px solid","borderColor": "rgba(210, 211, 231, 0.89)" }}>
-            <h2>Book Your Flight Ticket</h2>
+          <div id="header">
+            <h1>Book Your Flight Ticket</h1>
+            
           </div>
+          <hr style={{width: '100%'}}/>
           <div className="flight" id="flightbox">
 
             <form id="flight-form" autoComplete="off" >
@@ -298,15 +301,16 @@ const navigate = useNavigate();
                 <div className="col-sm-2">
                   <div className="info-box" >
                  
-                    <label >Depaturing Date</label>
+                    <label >Depature Date</label>
                     <DatePicker  className="date" id="calender" selected={depaturedate}  onChange={(depature)=>setdepaturedate(depature) } dateFormat={'yyyy-MM-dd'} /><br /><br />
                   </div>
                 </div>
 
                 <div className="col-sm-2" >
                   <div className="info-box" >
-                    <label >Returning Date</label>
-                    <DatePicker  disabled={selectedRadio === "Disable"} className="date" id="calender2"  selected={arrivaldate}  onChange={(arrival)=>setarrivaldate (arrival)}  dateFormat={'yyyy-MM-dd'}defaultChecked/><br /><br />
+                    <label >Return Date</label>
+                    <DatePicker  disabled={selectedRadio === "Disable"} id="calender2"  selected={arrivaldate}  onChange={(arrival)=>setarrivaldate (arrival)}  
+                        dateFormat={'yyyy-MM-dd'} defaultChecked/><br /><br />
                     </div>
                   </div>
               
@@ -335,6 +339,10 @@ const navigate = useNavigate();
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
                       </select>
                     </div>
                   </div>
