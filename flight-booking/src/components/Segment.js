@@ -1,9 +1,9 @@
 import { dateResolver, durationResolver, timeResolver } from './Resolvers'
 
-function Segment({segment, index,segmentLength,searchData}) {
+function Segment({segment, index,segmentLength,searchData,airport, isOutBound}) {
 
     const isLastSegment = index === segmentLength;
-  
+
     return (
         <>
             <hr/>
@@ -14,8 +14,8 @@ function Segment({segment, index,segmentLength,searchData}) {
                 </div>
                 <span className="dot"></span>
                 <div className="airport">
-                    <h3>{segment.departure.iataCode}</h3>
-                    <p>{segment.departure.iataCode} AIRPORT <br/>
+                    <h3>{segmentLength === 0? airport.city: segment.departure.iataCode}</h3>
+                    <p>{segmentLength === 0? airport.airportName: segment.departure.iataCode} AIRPORT <br/>
                         {segment.departure.terminal &&
                             <span> Terminal: {segment.departure.terminal}</span>}
                     </p>
@@ -34,8 +34,8 @@ function Segment({segment, index,segmentLength,searchData}) {
                 </div>
                 <span className="dot"></span>
                 <div className="airport">
-                    <h3>{isLastSegment?searchData.destinationCity : segment.arrival.iataCode}</h3>
-                    <p>{isLastSegment?searchData.destinationAirport :segment.arrival.iataCode} AIRPORT <br/>
+                    <h3>{isLastSegment?isOutBound? searchData.destinationCity: searchData.originCity : segment.arrival.iataCode}</h3>
+                    <p>{isLastSegment?isOutBound? searchData.destinationAirport: searchData.originAirport :segment.arrival.iataCode} AIRPORT <br/>
                         {segment.arrival.terminal &&
                             <span> Terminal: {segment.arrival.terminal}</span>}
                     </p>

@@ -1,10 +1,24 @@
-import React from 'react'
+import axios from 'axios';
+import React, {useEffect, useState} from 'react'
 import { dateResolver, durationResolver, timeResolver } from './Resolvers';
 import Segment from './Segment';
 
-function BoundDetails({BoundSegments, searchData}) {
+function BoundDetails({BoundSegments, searchData, isOutBound}) {
 
     const [firstSegment, ...segments] = [...BoundSegments];
+    const [airport, setAirport] = useState({'city':" ", 'airportName':" " });
+    
+    useEffect(() => {  
+
+        const getAirportName = async (code) => {
+            const response = await axios.get( `http://localhost:8080/locations/${code}`);            
+            setAirport(() => ({'city': response.data[0].cityname, 'airportName':response.data[0].name }));
+        }
+        
+        getAirportName(firstSegment.arrival.iataCode);
+    }, [firstSegment])
+
+
 
     return (
         <>
@@ -19,8 +33,8 @@ function BoundDetails({BoundSegments, searchData}) {
                         
                         <span className="dot"></span>
                         <div className="airport">
-                            <h3>{searchData.originCity}</h3>
-                            <p>{searchData.originAirport} AIRPORT <br/>
+                            <h3>{isOutBound? searchData.originCity : searchData.destinationCity}</h3>
+                            <p>{isOutBound? searchData.originAirport: searchData.destinationAirport} AIRPORT <br/>
                             {firstSegment.departure.terminal &&
                                 <span> Terminal: {firstSegment.departure.terminal}</span>}
                             </p>
@@ -39,8 +53,9 @@ function BoundDetails({BoundSegments, searchData}) {
                         </div>
                         <span className="dot"></span>
                         <div className="airport">
-                            <h3>{segments.length===0? searchData.destinationCity : firstSegment.arrival.iataCode}</h3>
-                            <p>{segments.length===0? searchData.destinationAirport :firstSegment.arrival.iataCode} AIRPORT <br/>
+                            <h3>{segments.length===0? searchData.destinationCity :  airport.city}</h3>
+                            <p>{segments.length===0? searchData.destinationAirport : airport.airportName} AIRPORT <br/>
+
                                {firstSegment.arrival.terminal &&
                                 <span> Terminal: {firstSegment.arrival.terminal}</span>}
                             </p>
@@ -49,7 +64,7 @@ function BoundDetails({BoundSegments, searchData}) {
                     
                     {segments.map((segment, index) => <Segment segment={segment} key={segment.arrival.iataCode} 
                                                         index={index} segmentLength={segments.length-1}
-                                                            searchData={searchData}/>)}
+                                                            searchData={searchData} airport={airport} isOutBound={isOutBound}/>)}
                     
                 </div>
 

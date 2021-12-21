@@ -51,13 +51,13 @@ function FlightDetails({outBoundSegments, inBoundSegments, searchData}) {
                 </div>
             </div>
 
-            <BoundDetails BoundSegments={outBoundSegments} searchData={searchData} />
+            <BoundDetails BoundSegments={outBoundSegments} searchData={searchData} isOutBound={true} />
 
             {inBoundSegments.length>0 ?
             <>
                 <h2>Return details:</h2>
                 <h2>{airlineName} - {inBoundSegments[0].carrierCode} {inBoundSegments[0].number}</h2>
-                <BoundDetails BoundSegments={inBoundSegments} searchData={searchData} />
+                <BoundDetails BoundSegments={inBoundSegments} searchData={searchData} isOutBound={false}/>
             </> : " "}
 
             
